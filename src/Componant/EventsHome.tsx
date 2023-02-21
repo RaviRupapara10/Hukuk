@@ -10,8 +10,8 @@ const EventsHome = () => {
   return (
     <View style={styles.container}>
       <View style={{}}>
-        <View style={{ flexDirection: 'row' ,position: 'absolute', margin: 20,alignContent:'space-between', }}>
-          <View style={{justifyContent:'flex-start'  }}>
+        <View style={{ flexDirection: 'row', position: 'absolute', margin: 20, alignContent: 'space-between', }}>
+          <View style={{ justifyContent: 'flex-start' }}>
             <View><Text style={{ fontSize: 26, fontWeight: '600', color: '#ffffff' }}>civil law
             </Text></View>
             <View >
@@ -25,12 +25,12 @@ const EventsHome = () => {
               </View>
             </View>
           </View>
-          <View style={{alignItems:'flex-end' }}>
-      
+          <View style={{ alignItems: 'flex-end' }}>
+            {/* To DO:: Progress bar*/}
           </View>
         </View>
 
-      </View>   
+      </View>
     </View>
   )
 }
