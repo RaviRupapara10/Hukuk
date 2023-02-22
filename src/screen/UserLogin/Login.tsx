@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     letterSpacing: 0.3,
     alignSelf: 'center',
-    fontFamily: 'sfPro'
+    // fontFamily: 'sfPro'  
 
   },
   RegistrationBackground: {
