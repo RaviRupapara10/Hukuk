@@ -23,21 +23,17 @@ const DrowerTry = () => {
 
   const navigationView = () => (
 
-    //<SafeAreaView>
     <DrowerType01 />
-    //</SafeAreaView>
-    // <></>
 
 
   );
 
   return (
     <DrawerLayoutAndroid
-      drawerWidth={(deviceWidth / 1.3)}
-      drawerBackgroundColor="transparent"
+    // style={{backgroundColor:'red'}}
+      // drawerWidth={(deviceWidth / 1.3)}
       ref={drawer}
       renderNavigationView={navigationView}>
-      {/* <DrowerType01 /> */}
 
     </DrawerLayoutAndroid>
   );

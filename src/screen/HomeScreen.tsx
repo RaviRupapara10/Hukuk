@@ -40,7 +40,7 @@ const HomeScreen = () => {
       ref={drawer}
       renderNavigationView={navigationView}>
 
-      <View style={[{ height: '100%', alignSelf: 'center' }, s.backGroundColor]}>
+      <View style={[{ height: '100%', alignSelf: 'center',width:deviceWidth }, s.backGroundColor]}>
         <SafeAreaView style={{ width: deviceWidth - 40, alignSelf: 'center' }}>
           <ScrollView  >
             <View >
@@ -104,65 +104,36 @@ const HomeScreen = () => {
                   Hello Fatmegul,</Text>
                 <Text style={{ fontSize: 40, fontWeight: '700', }}>Good morning</Text>
               </View>
-              <View style={{ marginTop: 50,marginBottom:10 }}>
+
+
+
+
+              {/* cards */}
+              <View style={{ marginTop: 100, marginBottom: 10 }}>
                 <Text style={{ fontSize: 24, fontWeight: '600' }}>Events</Text>
               </View>
 
 
               {/* Event cards */}
-              <View >
-                <EventsHome />
-              </View>
-
-              {/* circuls */}
-              {/* <View style={{ flexDirection: 'row' }}>
-              <View style={{ width: 40 }}>
-                <Avatar
-                  size={'medium'}
-                  rounded
-                  source={require('../Images/Drower01/avatar.png')}
-                  containerStyle={{ borderColor: '#FFFFFf', borderWidth: 1.5 }}
-                />
-              </View>
-              <View style={{ width: 40 }}>
-                <Avatar
-                  size={'medium'}
-                  rounded
-                  source={require('../Images/Drower01/avatar.png')}
-                  containerStyle={{ borderColor: '#FFFFFf', borderWidth: 1.5 }}
-                />
-              </View>
-              <View style={{ width: 40 }}>
-                <Avatar
-                  size={'medium'}
-                  rounded
-                  source={require('../Images/Drower01/avatar.png')}
-                  containerStyle={{ borderColor: '#FFFFFf', borderWidth: 1.5 }}
-                />
-              </View>
-              <View style={{ width: 40 }}>
-                <Avatar
-                  size={'medium'}
-                  rounded
-                  source={require('../Images/Drower01/avatar.png')}
-                  containerStyle={{ borderColor: '#FFFFFf', borderWidth: 1.5 }}
-                />
-              </View>
-              <View style={{ width: 40 }}>
-                <Avatar
-                  size={'medium'}
-                  rounded
-                  source={require('../Images/Drower01/avatar.png')}
-                  containerStyle={{ borderColor: '#FFFFFf', borderWidth: 1.5 }}
-                />
+              <View  >
+                <ScrollView horizontal={true}
+                showsHorizontalScrollIndicator={false} >
+                  <View style=
+                    {{ flexDirection: 'row' }}>
+                    <View style={{marginRight:10}}>
+                      <EventsHome gradColor={['rgba(0, 174, 255, 1)',
+                        'rgba(0, 118, 255, 1)']} />
+                    </View>
+                    <View style={{marginRight:10}}>
+                      <EventsHome gradColor={['rgba(253, 80, 79, 1)',
+                        'rgba(255, 129, 129, 1)']} />
+                    </View>
+                  
+                  </View>
+                </ScrollView>
               </View>
 
 
-
-
-
-
-            </View> */}
             </View>
           </ScrollView>
         </SafeAreaView>

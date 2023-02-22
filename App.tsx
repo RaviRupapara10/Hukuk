@@ -32,7 +32,7 @@ function App() {
   // };
 
 
-  const [fontsLoaded] = useFonts(Ffont);
+  // const [fontsLoaded] = useFonts(Ffont);
 
   return (
 

@@ -1,15 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import CustomText from '../Componant/CustomText'
 
-const SecondScreen = () => {
+const LeaderBoard = () => {
   return (
     <View>
-      <Text>secondScreen</Text>
+      <Text>LeaderBoard</Text>
     </View>
   )
 }
 
-export default SecondScreen
+export default LeaderBoard
 
 const styles = StyleSheet.create({})
