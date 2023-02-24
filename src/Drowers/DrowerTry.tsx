@@ -34,6 +34,7 @@ const DrowerTry = () => {
       // drawerWidth={(deviceWidth / 1.3)}
       ref={drawer}
       renderNavigationView={navigationView}>
+      {/* drawerBackgroundColor */}
 
     </DrawerLayoutAndroid>
   );

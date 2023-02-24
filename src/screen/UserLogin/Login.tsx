@@ -77,8 +77,13 @@ const Login = () => {
                 </View>
               </View>
 
+
+{/* login btn */}
+
+
+
               <View style={{ marginTop: 20 }}>
-                <TouchableOpacity onPress={() => { navigation.navigate(('HomeScreen' as never)) }}>
+                <TouchableOpacity onPress={() => { navigation.navigate('DrawerNavigation'as never), ({ screen: 'HomeScreen' }as never) }}>
                   <View style={{ alignSelf: 'center', }}>
                     <LinearGradient
                       // Button Linear Gradient
@@ -106,11 +111,10 @@ const Login = () => {
 
 
               <TouchableOpacity
-                onPress={() => { navigation.navigate(('PasswordReset' as never)) }}>
+                onPress={() => {navigation.navigate('PasswordReset'  as never)}}>
                 <View style={{ alignSelf: 'center', marginTop: 20 }}>
                   <View >
                     <Text>
-
                       Forgot password?
                     </Text>
                   </View>

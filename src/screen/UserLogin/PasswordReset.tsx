@@ -4,7 +4,6 @@ import { ScrollView } from 'react-native-gesture-handler'
 import { LinearGradient } from 'expo-linear-gradient';
 import { Input } from '@rneui/base';
 import { useNavigation } from '@react-navigation/native';
-import CustomText from '../../Componant/CustomText';
 
 
 const windowWidth = Dimensions.get('window').width;

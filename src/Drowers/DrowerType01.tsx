@@ -15,10 +15,22 @@ const DrowerType01 = () => {
   const navigation = useNavigation();
 
 
-  const LeaderBoardCLick=()=>{
-    console.log('pressed');
-    navigation.navigate(('Leaderboard' as never))
+  const LeaderBoardCLick = () => {
+    // console.log('pressed');
+    navigation.navigate(('DrawerNavigation' as never), ( {screen: "Leaderboard"}as never))
   }
+
+  const HomeScreenCLick = () => {
+    // console.log('pressed');
+    navigation.navigate(('DrawerNavigation' as never), ({ screen: "HomeScreen" } as never))
+  }
+  const LogOutCLick = () => {
+    // console.log('pressed');
+    navigation.navigate(('Login' as never))
+  }
+
+
+
 
 
   return (
@@ -52,15 +64,17 @@ const DrowerType01 = () => {
 
           <View>
 
-            <TouchableOpacity >
+            <TouchableOpacity
+              onPress={HomeScreenCLick}>
               <View style={{ marginLeft: 20, marginVertical: 10 }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                   <Image
                     source={require('../Images/Drower01/Tab1.png')} />
-                  <Text style={{ fontSize: 19, fontWeight: '700', margin: 15 }}>Anasayfa</Text>
+                  <Text style={{ fontSize: 19, fontWeight: '700', margin: 15 }}>Home page</Text>
                 </View>
               </View>
             </TouchableOpacity>
+
             <TouchableOpacity >
               <View style={{ marginLeft: 20, marginVertical: 10 }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -72,7 +86,7 @@ const DrowerType01 = () => {
             </TouchableOpacity>
 
             <TouchableOpacity
-             onPress={LeaderBoardCLick}
+              onPress={LeaderBoardCLick}
             >
               <View style={{ marginLeft: 20, marginVertical: 10 }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -82,21 +96,24 @@ const DrowerType01 = () => {
                 </View>
               </View>
             </TouchableOpacity>
+
             <TouchableOpacity >
               <View style={{ marginLeft: 20, marginVertical: 10 }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                   <Image
                     source={require('../Images/Drower01/Tab4.png')} />
-                  <Text style={{ fontSize: 19, fontWeight: '700', margin: 15 }}>Sohbet</Text>
+                  <Text style={{ fontSize: 19, fontWeight: '700', margin: 15 }}>Chat</Text>
                 </View>
               </View>
             </TouchableOpacity>
+
+
             <TouchableOpacity >
               <View style={{ marginLeft: 20, marginVertical: 10 }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                   <Image
                     source={require('../Images/Drower01/Tab5.png')} />
-                  <Text style={{ fontSize: 19, fontWeight: '700', margin: 15 }}>Profil</Text>
+                  <Text style={{ fontSize: 19, fontWeight: '700', margin: 15 }}>Profile</Text>
                 </View>
               </View>
             </TouchableOpacity>
@@ -108,7 +125,7 @@ const DrowerType01 = () => {
             position: 'absolute',
             bottom: 0, left: 0, right: 0
           }}>
-            <TouchableOpacity >
+            <TouchableOpacity onPress={LogOutCLick} >
               <View style={{ marginLeft: 20, marginVertical: 10 }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                   <Image
