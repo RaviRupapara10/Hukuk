@@ -1,4 +1,4 @@
-import { Button ,Pressable,Image, Platform} from 'react-native';
+import { Button, Pressable, Image, Platform } from 'react-native';
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from '../screen/UserLogin/Login';
@@ -8,10 +8,10 @@ import PasswordReset from '../screen/UserLogin/PasswordReset';
 import DrowerType01 from '../Drowers/DrowerType01';
 import HomeScreen from '../screen/HomeScreen';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import TabNavigation from './TabNavigation';
 import LeaderBoard from '../screen/DrowerScreens/Leaderboard';
 import { useNavigation } from '@react-navigation/native';
 import { Icon } from '@rneui/base';
+import TabBar from '../tabs/Leaderboard/MainTab/TabBar';
 
 
 const Stack = createNativeStackNavigator();
@@ -68,8 +68,8 @@ function DrawerNavigation() {
 
   const leaderBoardHeader = {
     headerShadowVisible: false,
-   
-   
+
+
   };
 
 
@@ -89,17 +89,12 @@ function DrawerNavigation() {
       }} >
       <Drawer.Group screenOptions={{ headerShown: false }}>
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="Leaderboard" component={TabBar} />  
       </Drawer.Group>
       <Drawer.Group >
-        <Stack.Screen name="Leaderboard" component={TabNavigation} options={leaderBoardHeader} />
-
-
       </Drawer.Group>
-
     </Drawer.Navigator>
-
   );
 }
-
 
 

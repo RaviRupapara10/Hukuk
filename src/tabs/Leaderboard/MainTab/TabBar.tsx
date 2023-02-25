@@ -3,24 +3,40 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Group from '../Screens/Group';
 import SinglePlayer from '../Screens/SinglePlayer';
+import TabBarButton from './TabBarButton';
 
 
 
 const Tab = createMaterialTopTabNavigator();
 
 export default function TabBar() {
+  const tabs: {
+    name: string,
+    component: () => JSX.Element,
+    tabBarLabel: string
+  }[] = [
+      {
+        name: 'Group',
+        component: Group,
+        tabBarLabel: 'Group'
+      },
+      {
+        name: 'SinglePlayer',
+        component: SinglePlayer,
+        tabBarLabel: 'Single Player'
+      }
+    ];
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={{
-          tabBarLabelStyle: { fontSize: 12,backgroundColor:'blue', },
-          tabBarItemStyle: { width: 100 ,backgroundColor:'green',margin:2, borderRadius: 20,},
-          tabBarStyle: { backgroundColor: 'powderblue' },
-        }}
-      >
-        <Tab.Screen name="Group" component={Group} />
-        <Tab.Screen name="SinglePlayer" component={SinglePlayer} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <Tab.Navigator
+      initialRouteName={tabs[0].name}
+      tabBar={(props) => <TabBarButton {...props} tabs={tabs} />}>
+ 
+      {
+        tabs.map((x, i) =>
+          <Tab.Screen key={i} name={x.name} component={x.component} options={{ tabBarLabel: x.tabBarLabel, }} />
+        )
+      }
+    </Tab.Navigator >
+
   );
 }
