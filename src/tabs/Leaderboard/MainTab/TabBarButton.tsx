@@ -27,11 +27,11 @@ const TabBarButton = (props: any) => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center',paddingVertical:10 }}>
                     <Pressable onPress={() => navigation.goBack()}>
                         <Image
                             source={require('../../../Images/comman/BackIcon.png')}
-                            style={{ height: 15, width: 15, marginRight: 30, marginLeft: 10 }}
+                            style={{ height: 15, width: 15, marginRight: 30, marginLeft: 10 ,padding:10 ,marginVertical:10}}
                         />
                     </Pressable>
 
@@ -99,8 +99,7 @@ export default TabBarButton
 const styles = StyleSheet.create({
 
     header: {
-        marginTop: StatusBar.currentHeight, padding: 10
-
+        marginTop: StatusBar.currentHeight, backgroundColor:'#F5F8FF',
     }
     ,
     HeaderText: {
@@ -111,11 +110,11 @@ const styles = StyleSheet.create({
     },
     container:{marginBottom:10,
         backgroundColor:'#F5F8FF',
-        borderBottomLeftRadius:20,
+        borderBottomLeftRadius:30,
         shadowOffset: { width: 0, height: 12 },
-        shadowOpacity: 0.3,
+        shadowOpacity: 0,
         shadowRadius: 5,
-        elevation: 10,
+        elevation: 5,
     },
     btn:{
         alignItems: 'center',
@@ -126,6 +125,6 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 12 },
         shadowOpacity: 0.3,
         shadowRadius: 5,
-        elevation: 10,
+        // elevation: 10,
     },
 })
