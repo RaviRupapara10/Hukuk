@@ -2,13 +2,14 @@ import { Dimensions, Image, Pressable, StyleSheet, Text, View, StatusBar } from 
 import React, { useEffect, useState } from 'react'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useNavigation, useRoute } from '@react-navigation/native';
+import { Icon } from '@rneui/base';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height
 
 const TabBarButton = (props: any) => {
     const [currentScreenName, setCurrentScreenName] = useState<string>();
-    console.log((props as any).navigationState.index);
+    // console.log((props as any).navigationState.index);
     const navigation = useNavigation();
     const route = useRoute();
 
@@ -27,12 +28,17 @@ const TabBarButton = (props: any) => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <View style={{ flexDirection: 'row', alignItems: 'center',paddingVertical:10 }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', paddingVertical: 10 }}>
                     <Pressable onPress={() => navigation.goBack()}>
-                        <Image
-                            source={require('../../../Images/comman/BackIcon.png')}
-                            style={{ height: 15, width: 15, marginRight: 30, marginLeft: 10 ,padding:10 ,marginVertical:10}}
-                        />
+                        <View style={{}}>
+                            <Icon
+                                name='arrow-back-outline'
+                                type='ionicon'
+                                color='#797F8A'
+                                containerStyle={{padding:10}}
+                                size={30}
+                            />
+                        </View>
                     </Pressable>
 
                     <Text style={styles.HeaderText}>LeaderBoard</Text>
@@ -43,7 +49,7 @@ const TabBarButton = (props: any) => {
 
 
 
-            <View style={{ flexDirection: 'row',marginBottom:10}}>
+            <View style={{ flexDirection: 'row', marginBottom: 10 }}>
                 {props.tabs.map((x: any, i: number) =>
                     <View style={{ marginHorizontal: 10 }} key={i}>
                         <Pressable onPress={() => func(x)}>
@@ -99,7 +105,7 @@ export default TabBarButton
 const styles = StyleSheet.create({
 
     header: {
-        marginTop: StatusBar.currentHeight, backgroundColor:'#F5F8FF',
+        marginTop: StatusBar.currentHeight, backgroundColor: '#F5F8FF',
     }
     ,
     HeaderText: {
@@ -108,15 +114,17 @@ const styles = StyleSheet.create({
 
 
     },
-    container:{marginBottom:10,
-        backgroundColor:'#F5F8FF',
-        borderBottomLeftRadius:30,
+    container: {
+        marginBottom: 15,
+        backgroundColor: '#F5F8FF',
+        borderBottomLeftRadius: 30,
         shadowOffset: { width: 0, height: 12 },
-        shadowOpacity: 0,
-        shadowRadius: 5,
-        elevation: 5,
+        shadowOpacity: 52,
+        shadowRadius: 32,
+        elevation: 10,
+        shadowColor:'#29484C'
     },
-    btn:{
+    btn: {
         alignItems: 'center',
 
         borderRadius: 20,

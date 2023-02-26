@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
     // marginTop: StatusBar.currentHeight, 
     //  padding:10,
     // backgroundColor: 'red',
+    flex: 1, backgroundColor: '#F5F8FF',
 
   }
 })

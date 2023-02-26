@@ -12,6 +12,8 @@ import LeaderBoard from '../screen/DrowerScreens/Leaderboard';
 import { useNavigation } from '@react-navigation/native';
 import { Icon } from '@rneui/base';
 import TabBar from '../tabs/Leaderboard/MainTab/TabBar';
+import Profiles from '../tabs/Leaderboard/Screens/Profiles';
+import SinglePlayer from '../tabs/Leaderboard/Screens/SinglePlayer';
 
 
 const Stack = createNativeStackNavigator();
@@ -34,17 +36,16 @@ const NavigationData = () => {
 
   return (
 
-    <Stack.Navigator initialRouteName='Leaderboard'>
+    <Stack.Navigator initialRouteName='SinglePlayer'>
       <Stack.Group
-        screenOptions={{ headerShown: false }}
-      >
-
+        screenOptions={{ headerShown: false }}>
         <Stack.Screen name="DrawerNavigation" component={DrawerNavigation} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Registration" component={Registration} />
         <Stack.Screen name="VerifyCode" component={VerifyCode} />
         <Stack.Screen name="PasswordReset" component={PasswordReset} />
-
+        {/* <Stack.Screen name="PasswordReset" component={PasswordReset} /> */}
+        {/* <Stack.Screen name="SinglePlayer" component={SinglePlayer} /> */}
         {/* <Stack.Screen name="TabNavigation" component={TabNavigation} /> */}
       </Stack.Group>
       <Stack.Group>
@@ -66,20 +67,12 @@ function DrawerNavigation() {
   const navigation = useNavigation();
   const Drawer = createDrawerNavigator();
 
-  const leaderBoardHeader = {
-    headerShadowVisible: false,
-
-
-  };
-
-
-
-
   return (
 
     <Drawer.Navigator
 
       // initialRouteName='DrawerNavigation'
+      initialRouteName='Leaderboard'
 
       drawerContent={(props) => <DrowerType01 />}
       screenOptions={{
@@ -89,12 +82,19 @@ function DrawerNavigation() {
       }} >
       <Drawer.Group screenOptions={{ headerShown: false }}>
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen name="Leaderboard" component={TabBar} />  
+        <Stack.Screen name="Profiles" component={Profiles} />
+        <Drawer.Screen name="Leaderboard" component={TabBar} />
       </Drawer.Group>
       <Drawer.Group >
       </Drawer.Group>
     </Drawer.Navigator>
   );
 }
+
+
+
+
+
+
 
 

@@ -3,6 +3,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import Group from '../Screens/Group';
 import SinglePlayer from '../Screens/SinglePlayer';
 import TabBarButton from './TabBarButton';
+import { View } from 'react-native';
 
 
 
@@ -26,16 +27,20 @@ export default function TabBar() {
       }
     ];
   return (
-    <Tab.Navigator
-      initialRouteName={tabs[0].name}
-      tabBar={(props) => <TabBarButton {...props} tabs={tabs} />}>
- 
-      {
-        tabs.map((x, i) =>
-          <Tab.Screen key={i} name={x.name} component={x.component} options={{ tabBarLabel: x.tabBarLabel, }} />
-        )
-      }
-    </Tab.Navigator >
+    <View style={{
+      flex: 1, backgroundColor: '#F5F8FF',
+    }}>
+      <Tab.Navigator
+        initialRouteName={tabs[0].name}
+        tabBar={(props) => <TabBarButton {...props} tabs={tabs} />}>
+
+        {
+          tabs.map((x, i) =>
+            <Tab.Screen key={i} name={x.name} component={x.component} options={{ tabBarLabel: x.tabBarLabel, }} />
+          )
+        }
+      </Tab.Navigator >
+    </View>
 
   );
 }
