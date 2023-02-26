@@ -118,8 +118,8 @@ const styles = StyleSheet.create({
     // alignSelf: 'center',
     // padding: 2,
     fontSize: 12,
-    color:'#ffffff'
+    color:'#ffffff',
     // width:'100%'
-    // backgroundColor: '#0971FE'
+    backgroundColor: '#0971FE'
   }
 })
