@@ -10,7 +10,7 @@ import EventsHome from '../Componant/EventsHome';
 // import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
-const s = require('../extra/styles');
+const s = require('../extraFiles/styles');
 
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;

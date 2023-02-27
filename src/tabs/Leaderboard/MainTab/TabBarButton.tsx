@@ -35,7 +35,7 @@ const TabBarButton = (props: any) => {
                                 name='arrow-back-outline'
                                 type='ionicon'
                                 color='#797F8A'
-                                containerStyle={{padding:10}}
+                                containerStyle={{paddingHorizontal:20,paddingVertical:10}}
                                 size={30}
                             />
                         </View>
@@ -49,9 +49,9 @@ const TabBarButton = (props: any) => {
 
 
 
-            <View style={{ flexDirection: 'row', marginBottom: 10 }}>
+            <View style={{ flexDirection: 'row', marginBottom: 10,marginLeft:10 }}>
                 {props.tabs.map((x: any, i: number) =>
-                    <View style={{ marginHorizontal: 10 }} key={i}>
+                    <View style={{ marginHorizontal: 10 ,margin:10}} key={i}>
                         <Pressable onPress={() => func(x)}>
                             <LinearGradient
                                 // Button Linear Gradient
@@ -131,8 +131,10 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         justifyContent: 'center',
         shadowOffset: { width: 0, height: 12 },
-        shadowOpacity: 0.3,
-        shadowRadius: 5,
+        shadowRadius: 16,
+        elevation: 5,
+        shadowColor:'#14484B',
+        shadowOpacity:52,
         // elevation: 10,
     },
 })

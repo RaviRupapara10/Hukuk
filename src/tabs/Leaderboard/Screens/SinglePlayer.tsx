@@ -2,17 +2,18 @@ import { Dimensions, Image, Pressable, StyleSheet, Text, View } from 'react-nati
 import React from 'react'
 import { ScrollView } from 'react-native-gesture-handler';
 import { Avatar, Badge, Icon } from '@rneui/base';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const SinglePlayer = () => {
 
   const navigation = useNavigation();
+  const route =useRoute()
 
-
-  const profileOpen = () => {
-    { navigation.navigate(('DrawerNavigation'as never), { screen: 'Profiles' }as never) }
+const profileOpen = (a:any) => {
+  console.log(a);
+    { navigation.navigate(('DrawerNavigation'as never), { screen: 'Profiles' }as never),{a}}
   }
 
   const card = [
@@ -62,7 +63,7 @@ const SinglePlayer = () => {
 
         {card.map((a, i) =>
           <Pressable
-          onPress={profileOpen}
+          onPress={()=>profileOpen(a)}
           key={i}
           >
             <View style={styles.cardContainer}>

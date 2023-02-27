@@ -36,14 +36,14 @@ const NavigationData = () => {
 
   return (
 
-    <Stack.Navigator initialRouteName='SinglePlayer'>
+    <Stack.Navigator initialRouteName='Registration'>
       <Stack.Group
         screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="DrawerNavigation" component={DrawerNavigation} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Registration" component={Registration} />
         <Stack.Screen name="VerifyCode" component={VerifyCode} />
         <Stack.Screen name="PasswordReset" component={PasswordReset} />
+        <Stack.Screen name="DrawerNavigation" component={DrawerNavigation} />
         {/* <Stack.Screen name="PasswordReset" component={PasswordReset} /> */}
         {/* <Stack.Screen name="SinglePlayer" component={SinglePlayer} /> */}
         {/* <Stack.Screen name="TabNavigation" component={TabNavigation} /> */}
@@ -80,12 +80,27 @@ function DrawerNavigation() {
           backgroundColor: 'transparent',
         },
       }} >
-      <Drawer.Group screenOptions={{ headerShown: false }}>
+      <Stack.Group screenOptions={{ headerShown: false }}>
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="Profiles" component={Profiles} />
-        <Drawer.Screen name="Leaderboard" component={TabBar} />
+
+      </Stack.Group>
+      <Drawer.Group screenOptions={{ headerShown: false }}>
+        <Drawer.Screen name="DrawerScreen" component={DrawerScreen} />
       </Drawer.Group>
-      <Drawer.Group >
+    </Drawer.Navigator>
+  );
+}
+
+function DrawerScreen() {
+
+  const navigation = useNavigation();
+  const Drawer = createDrawerNavigator();
+
+  return (
+    <Drawer.Navigator>
+      <Drawer.Group screenOptions={{ headerShown: false }}>
+        <Drawer.Screen name="Leaderboard" component={TabBar} />
       </Drawer.Group>
     </Drawer.Navigator>
   );

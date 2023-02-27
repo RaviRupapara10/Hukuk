@@ -17,7 +17,7 @@ const DrowerType01 = () => {
 
   const LeaderBoardCLick = () => {
     // console.log('pressed');
-    navigation.navigate(('DrawerNavigation' as never), ( {screen: "Leaderboard"}as never))
+    navigation.navigate(('DrawerNavigation' as never), ({ screen: "DrawerScreen" } as never), ({ screen: "Leaderboard" } as never))
   }
 
   const HomeScreenCLick = () => {
@@ -27,6 +27,9 @@ const DrowerType01 = () => {
   const LogOutCLick = () => {
     // console.log('pressed');
     navigation.navigate(('Login' as never))
+  }
+  const ProfileCLick = () => {
+    navigation.navigate(('DrawerNavigation' as never), ({ screen: "Profiles" } as never))
   }
 
 
@@ -108,7 +111,9 @@ const DrowerType01 = () => {
             </TouchableOpacity>
 
 
-            <TouchableOpacity >
+            <TouchableOpacity
+              onPress={ProfileCLick}
+            >
               <View style={{ marginLeft: 20, marginVertical: 10 }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                   <Image

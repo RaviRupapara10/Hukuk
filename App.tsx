@@ -8,7 +8,7 @@ import { useFonts } from 'expo-font';
 import { Text } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import NavigationData from './src/navigation/NavigationData';
-import { Ffont } from './src/extra/styles';
+import { Ffont } from './src/extraFiles/styles';
 
 function App() {
 

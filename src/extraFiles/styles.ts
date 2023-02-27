@@ -17,10 +17,11 @@ export const COLORS = {
 
 module.exports = StyleSheet.create({
   CompShadow: {
-    shadowOffset: { width: 0, height: 10 },
-    shadowRadius: 2,
+    shadowOffset: { width: 0, height: 12 },
+    shadowRadius: 16,
     elevation: 5,
-    shadowOpacity: 0.36,
+    shadowColor:'#14484B',
+    shadowOpacity:52,
   },
 
   BtnBackground: {
@@ -28,12 +29,8 @@ module.exports = StyleSheet.create({
   },
   backGroundColor:{
     backgroundColor:'#E7EEFB'
-  }
-
-
-
-
-
+  },
+  
 
 
 });
