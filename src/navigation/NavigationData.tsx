@@ -8,12 +8,11 @@ import PasswordReset from '../screen/UserLogin/PasswordReset';
 import DrowerType01 from '../Drowers/DrowerType01';
 import HomeScreen from '../screen/HomeScreen';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import LeaderBoard from '../screen/DrowerScreens/Leaderboard';
 import { useNavigation } from '@react-navigation/native';
 import { Icon } from '@rneui/base';
-import TabBar from '../tabs/Leaderboard/MainTab/TabBar';
-import Profiles from '../tabs/Leaderboard/Screens/Profiles';
-import SinglePlayer from '../tabs/Leaderboard/Screens/SinglePlayer';
+import Profiles from '../screen/DrowerScreens/LeaderBoardScreen/Screens/Profiles';
+import LeaderBoard from '../screen/DrowerScreens/LeaderBoardScreen/Leaderboard';
+import Chat from '../screen/DrowerScreens/Chat/Chat';
 
 
 const Stack = createNativeStackNavigator();
@@ -83,6 +82,7 @@ function DrawerNavigation() {
       <Stack.Group screenOptions={{ headerShown: false }}>
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="Profiles" component={Profiles} />
+        <Stack.Screen name="Chat" component={Chat} />
 
       </Stack.Group>
       <Drawer.Group screenOptions={{ headerShown: false }}>
@@ -100,7 +100,7 @@ function DrawerScreen() {
   return (
     <Drawer.Navigator>
       <Drawer.Group screenOptions={{ headerShown: false }}>
-        <Drawer.Screen name="Leaderboard" component={TabBar} />
+        <Drawer.Screen name="Leaderboard" component={LeaderBoard} />
       </Drawer.Group>
     </Drawer.Navigator>
   );

@@ -14,7 +14,7 @@ const DrowerType01 = () => {
 
   const navigation = useNavigation();
 
-
+ 
   const LeaderBoardCLick = () => {
     // console.log('pressed');
     navigation.navigate(('DrawerNavigation' as never), ({ screen: "DrawerScreen" } as never), ({ screen: "Leaderboard" } as never))
@@ -30,6 +30,9 @@ const DrowerType01 = () => {
   }
   const ProfileCLick = () => {
     navigation.navigate(('DrawerNavigation' as never), ({ screen: "Profiles" } as never))
+  }
+  const ChatCLick = () => {
+    navigation.navigate(('DrawerNavigation' as never), ({ screen: "Chat" } as never))
   }
 
 
@@ -100,7 +103,9 @@ const DrowerType01 = () => {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity >
+            <TouchableOpacity 
+             onPress={ChatCLick}
+            >
               <View style={{ marginLeft: 20, marginVertical: 10 }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                   <Image

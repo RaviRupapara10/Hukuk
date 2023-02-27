@@ -74,7 +74,7 @@ const Group = () => {
                 />
 
                 {a.Badge ? <Badge
-                  value={<Image source={require('../../../Images/comman/PremiumBadge.png')}
+                  value={<Image source={require('../../../../Images/comman/PremiumBadge.png')}
                     style={{ height: 25, width: 25 }}
                   />}
                   containerStyle={{ position: 'absolute', top: -3, right: -3   }}
@@ -89,7 +89,7 @@ const Group = () => {
 
                 {a.premium ? <View style={{ width: 100, backgroundColor: '#0971FE', borderRadius: 20, justifyContent: 'center', flexDirection: 'row', padding: 3 }}>
                   <Image
-                    source={require('../../../Images/comman/Crown.png')}
+                    source={require('../../../../Images/comman/Crown.png')}
                     style={{
                       height: 15, width: 15, padding: 2, marginHorizontal: 3
                       , marginRight: 10

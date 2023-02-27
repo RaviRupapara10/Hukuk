@@ -2,5 +2,7 @@
   "editor.cursorSmoothCaretAnimation": "on",
   "workbench.list.smoothScrolling": true,
   "editor.smoothScrolling": true,
-  "editor.stickyScroll.enabled": false
+  "editor.stickyScroll.enabled": false,
+  "diffEditor.wordWrap": "on",
+  "editor.wordWrap": "on"
 }

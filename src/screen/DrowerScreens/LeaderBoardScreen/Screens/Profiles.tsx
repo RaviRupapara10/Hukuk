@@ -7,7 +7,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 // import { Avatar, Badge } from '@rneui/themed';
 
 
-const s = require("../../../extraFiles/styles")
+const s = require("../../../../extraFiles/styles")
 
 const Profiles = () => {
   const navigation = useNavigation();
@@ -16,7 +16,7 @@ const Profiles = () => {
   // const s = require('../../extra/');
 
   const data = route.params
-  console.log(data);
+  // console.log(data);
 
   return (
     <View style={{ backgroundColor: '#E5E5E5', flex: 1 }}>
@@ -59,13 +59,13 @@ const Profiles = () => {
               <View>
                 <Avatar
                   rounded
-                  source={require('../../../Images/comman/avatar.png')}
+                  source={require('../../../../Images/comman/avatar.png')}
                   size={100}
                 />
 
                 <Avatar
                   rounded
-                  source={require('../../../Images/comman/edit.png')}
+                  source={require('../../../../Images/comman/edit.png')}
                   size={50}
                   containerStyle={{ position: 'absolute', bottom: -10, right: -10, }}
                 />
@@ -105,7 +105,7 @@ const Profiles = () => {
           {/* /card 1 */}
           <View>
             <View style={styles.FirstCard}>
-              <Image source={require('../../../Images/ProfileScreen/Offerbg.png')}
+              <Image source={require('../../../../Images/ProfileScreen/Offerbg.png')}
 
                 style={styles.FirstCardImage} />
               <Text style={styles.FirstCardText}>Premium</Text>
@@ -145,7 +145,7 @@ const Profiles = () => {
               <View style={{}}>
                 <View>
                   <Image
-                    source={require('../../../Images/ProfileScreen/copper.png')}
+                    source={require('../../../../Images/ProfileScreen/copper.png')}
                     style={{ height: 85, width: 85, alignSelf: 'center' }}
                   />
                 </View>
@@ -167,7 +167,7 @@ const Profiles = () => {
               <View style={{}}>
                 <View>
                   <Image
-                    source={require('../../../Images/ProfileScreen/silver.png')}
+                    source={require('../../../../Images/ProfileScreen/silver.png')}
                     style={{ height: 85, width: 85, alignSelf: 'center' }}
                   />
                 </View>
@@ -189,7 +189,7 @@ const Profiles = () => {
               <View style={{}}>
                 <View>
                   <Image
-                    source={require('../../../Images/ProfileScreen/Gold.png')}
+                    source={require('../../../../Images/ProfileScreen/Gold.png')}
                     style={{ height: 85, width: 85, alignSelf: 'center' }}
                   />
                 </View>
@@ -214,7 +214,7 @@ const Profiles = () => {
           {/* card 3 */}
           <View style={styles.thirdCard}>
             <Image 
-            source={require('../../../Images/ProfileScreen/FrameGraph.png')}
+            source={require('../../../../Images/ProfileScreen/FrameGraph.png')}
             style={{height:'100%',width:'100%',alignSelf:'center',borderRadius: 15,}}
             />
           </View>

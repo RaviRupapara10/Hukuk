@@ -76,7 +76,7 @@ const profileOpen = (a:any) => {
                 />
 
                 {a.Badge ? <Badge
-                  value={<Image source={require('../../../Images/comman/PremiumBadge.png')}
+                  value={<Image source={require('../../../../Images/comman/PremiumBadge.png')}
                     style={{ height: 25, width: 25 }}
                   />}
                   containerStyle={{ position: 'absolute', top: -3, right: -3 }}

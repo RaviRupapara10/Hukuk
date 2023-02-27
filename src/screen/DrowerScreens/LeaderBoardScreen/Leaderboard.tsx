@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import Group from '../Screens/Group';
-import SinglePlayer from '../Screens/SinglePlayer';
-import TabBarButton from './TabBarButton';
+import Group from './Screens/Group';
+import SinglePlayer from './Screens/SinglePlayer';
+import TabBarButton from './Tab/TabBarButton';
 import { View } from 'react-native';
 
 
 
 const Tab = createMaterialTopTabNavigator();
 
-export default function TabBar() {
+export default function LeaderBoard() {
   const tabs: {
     name: string,
     component: () => JSX.Element,
