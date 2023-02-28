@@ -1,5 +1,5 @@
 import { Image, Pressable, StatusBar, StyleSheet, Text, View, } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Avatar, Badge, Icon } from '@rneui/base';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -10,14 +10,21 @@ import { ScrollView } from 'react-native-gesture-handler';
 const s = require("../../../../extraFiles/styles")
 
 const Profiles = () => {
+
+
+ 
+
   const navigation = useNavigation();
   const route = useRoute();
 
   // const s = require('../../extra/');
 
-  const data = route.params
-  // console.log(data);
 
+  const data = route
+  console.log(data);
+  
+
+ 
   return (
     <View style={{ backgroundColor: '#E5E5E5', flex: 1 }}>
       <View style={styles.conatiner}>
@@ -37,8 +44,8 @@ const Profiles = () => {
                     name='arrow-back-outline'
                     type='ionicon'
                     color='#797F8A'
-                    containerStyle={{ paddingRight: 10 }}
-                    size={30}
+                    containerStyle={{ paddingRight: 10,justifyContent:'center',height:40, }}
+                    size={20}
                   />
                 </View>
               </Pressable>

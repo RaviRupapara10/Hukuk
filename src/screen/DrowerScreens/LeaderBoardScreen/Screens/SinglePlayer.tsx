@@ -9,11 +9,13 @@ const windowHeight = Dimensions.get('window').height;
 const SinglePlayer = () => {
 
   const navigation = useNavigation();
-  const route =useRoute()
+  const route = useRoute()
+  const data = route
 
-const profileOpen = (a:any) => {
-  console.log(a);
-    { navigation.navigate(('DrawerNavigation'as never), { screen: 'Profiles' }as never),{a}}
+  // console.log(data);
+
+  const profileOpen = (a: any) => {
+    (navigation as any).push(('Profiles' as never), { a } as never)
   }
 
   const card = [
@@ -63,8 +65,8 @@ const profileOpen = (a:any) => {
 
         {card.map((a, i) =>
           <Pressable
-          onPress={()=>profileOpen(a)}
-          key={i}
+            onPress={() => profileOpen(a)}
+            key={i}
           >
             <View style={styles.cardContainer}>
 

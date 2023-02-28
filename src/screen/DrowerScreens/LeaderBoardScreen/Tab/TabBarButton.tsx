@@ -20,7 +20,7 @@ const TabBarButton = (props: any) => {
 	}, [(props as any).navigationState.index])
 
 	const func = (x: any) => {
-		navigation.navigate('DrawerNavigation' as never, ({ screen: "DrawerScreen" } as never), { screen: 'Leaderboard', params: { screen: x.name } } as never);
+		navigation.navigate('DrawerNavigation' as never, ({ screen: "DrawerScreen", params: { screen: 'Leaderboard', params: { screen: x.name } }} as never));
 		setCurrentScreenName(x.name);
 	}
 
@@ -36,12 +36,14 @@ const TabBarButton = (props: any) => {
 								type='ionicon'
 								color='#797F8A'
 								containerStyle={{ paddingHorizontal: 20, paddingVertical: 10 }}
-								size={30}
+								size={20}
 							/>
 						</View>
 					</Pressable>
 
 					<Text style={styles.HeaderText}>LeaderBoard</Text>
+					<View style={{ height: 40, margin: 5 }}>
+					</View>
 				</View>
 			</View>
 
@@ -70,7 +72,7 @@ const TabBarButton = (props: any) => {
 						</Pressable>
 					</View>
 				)}
-			
+
 			</View>
 
 		</View>

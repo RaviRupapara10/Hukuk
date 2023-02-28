@@ -13,6 +13,8 @@ import { Icon } from '@rneui/base';
 import Profiles from '../screen/DrowerScreens/LeaderBoardScreen/Screens/Profiles';
 import LeaderBoard from '../screen/DrowerScreens/LeaderBoardScreen/Leaderboard';
 import Chat from '../screen/DrowerScreens/Chat/Chat';
+import ChatMassage from '../screen/DrowerScreens/Chat/ChatMassage';
+import SinglePlayer from '../screen/DrowerScreens/LeaderBoardScreen/Screens/SinglePlayer';
 
 
 const Stack = createNativeStackNavigator();
@@ -29,23 +31,19 @@ export type navigationParams = {
 const NavigationData = () => {
 
 
-
-
-
-
   return (
 
-    <Stack.Navigator initialRouteName='Registration'>
+    <Stack.Navigator initialRouteName='DrawerNavigation'>
       <Stack.Group
         screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Registration" component={Registration} />
         <Stack.Screen name="VerifyCode" component={VerifyCode} />
         <Stack.Screen name="PasswordReset" component={PasswordReset} />
+        <Stack.Screen name="ChatMassage" component={ChatMassage} />
         <Stack.Screen name="DrawerNavigation" component={DrawerNavigation} />
-        {/* <Stack.Screen name="PasswordReset" component={PasswordReset} /> */}
-        {/* <Stack.Screen name="SinglePlayer" component={SinglePlayer} /> */}
-        {/* <Stack.Screen name="TabNavigation" component={TabNavigation} /> */}
+        <Stack.Screen name="SinglePlayer" component={SinglePlayer} />
+        <Stack.Screen name="Profiles" component={Profiles} />
       </Stack.Group>
       <Stack.Group>
 
@@ -71,7 +69,7 @@ function DrawerNavigation() {
     <Drawer.Navigator
 
       // initialRouteName='DrawerNavigation'
-      initialRouteName='Leaderboard'
+      initialRouteName='HomeScreen'
 
       drawerContent={(props) => <DrowerType01 />}
       screenOptions={{
@@ -81,13 +79,14 @@ function DrawerNavigation() {
       }} >
       <Stack.Group screenOptions={{ headerShown: false }}>
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen name="Profiles" component={Profiles} />
-        <Stack.Screen name="Chat" component={Chat} />
 
+        <Stack.Screen name="Chat" component={Chat} />
+        <Stack.Screen name="Leaderboard" component={LeaderBoard} />
       </Stack.Group>
-      <Drawer.Group screenOptions={{ headerShown: false }}>
-        <Drawer.Screen name="DrawerScreen" component={DrawerScreen} />
-      </Drawer.Group>
+      <Stack.Group screenOptions={{ presentation: 'modal' , headerShown: false}}>
+        <Stack.Screen name="Profiles" component={Profiles} />
+      </Stack.Group>
+
     </Drawer.Navigator>
   );
 }

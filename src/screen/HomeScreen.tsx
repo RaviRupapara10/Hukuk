@@ -17,6 +17,10 @@ const deviceHeight = Dimensions.get('window').height;
 
 const HomeScreen = (prop:any) => {
   const navigation = useNavigation();
+  const route=useRoute();
+const data =route.params
+
+  console.log(data)
 
 
 

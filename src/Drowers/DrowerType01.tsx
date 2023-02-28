@@ -17,7 +17,7 @@ const DrowerType01 = () => {
  
   const LeaderBoardCLick = () => {
     // console.log('pressed');
-    navigation.navigate(('DrawerNavigation' as never), ({ screen: "DrawerScreen" } as never), ({ screen: "Leaderboard" } as never))
+    navigation.navigate(('DrawerNavigation' as never),({ screen: "Leaderboard" } as never))
   }
 
   const HomeScreenCLick = () => {
