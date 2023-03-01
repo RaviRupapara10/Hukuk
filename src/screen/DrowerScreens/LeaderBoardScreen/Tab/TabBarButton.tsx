@@ -19,9 +19,12 @@ const TabBarButton = (props: any) => {
 
 	}, [(props as any).navigationState.index])
 
+	
 	const func = (x: any) => {
-		navigation.navigate('DrawerNavigation' as never, ({ screen: "DrawerScreen", params: { screen: 'Leaderboard', params: { screen: x.name } }} as never));
-		setCurrentScreenName(x.name);
+		// navigation.navigate('DrawerNavigation' as never, ({ screen: "DrawerScreen", params: { screen: 'Leaderboard', params: { screen: x.name } }} as never));
+		// setCurrentScreenName(x.name);
+
+		navigation.navigate('Leaderboard' as never, {screen:x.name}as never)
 	}
 
 

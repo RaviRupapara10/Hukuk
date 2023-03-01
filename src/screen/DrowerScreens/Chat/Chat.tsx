@@ -100,9 +100,9 @@ const Chat = () => {
 
 			<View style={styles.containtView}>
 
-				{card.map((a, i) =>
+				{card.map((a: any, i) =>
 					<Pressable key={i}
-						onPress={() => { navigation.navigate(('ChatMassage') as never) }}
+						onPress={() => (navigation as any).push(('ChatMassage' as never), { a } as never)}
 					>
 						<View style={styles.cardContainer}>
 

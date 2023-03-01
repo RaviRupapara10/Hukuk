@@ -8,11 +8,22 @@ import { ScrollView, TextInput } from 'react-native-gesture-handler';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
+
+export type params = {
+    data: string
+}
+
+
 const ChatMassage = () => {
     const s = require("../../../extraFiles/styles")
 
+
     const navigation = useNavigation();
     const route = useRoute();
+    const data  = route.params
+    // console.log(data);e
+
+
     return (
         <View style={{ backgroundColor: '#E5E5E5', flex: 1 }}>
             <View style={{ flex: 1, height: windowHeight, }}>
@@ -54,7 +65,7 @@ const ChatMassage = () => {
                                         <Text style={{
                                             fontSize: 18,
                                             fontWeight: '600',
-                                        }}>Fatmegül </Text>
+                                        }}>{(data as any).a.name} </Text>
                                         <Text style={{
                                             fontSize: 12,
                                             fontWeight: '500',

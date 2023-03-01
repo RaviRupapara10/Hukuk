@@ -15,7 +15,7 @@ const SinglePlayer = () => {
   // console.log(data);
 
   const profileOpen = (a: any) => {
-    (navigation as any).push(('Profiles' as never), { a } as never)
+    (navigation as any).push(('Profiles' as never), { a }  )
   }
 
   const card = [

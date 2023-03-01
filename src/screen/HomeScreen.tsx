@@ -1,5 +1,5 @@
-import { Dimensions, StyleSheet, Text, View, Image, DrawerLayoutAndroid, TouchableOpacity, ScrollView, } from 'react-native'
-import React, { useContext, useRef } from 'react'
+import { Dimensions, StyleSheet, Text, View, Image, DrawerLayoutAndroid, TouchableOpacity, ScrollView, Alert, Modal, Pressable, Button } from 'react-native'
+import React, { useContext, useRef, useState, useMemo, useCallback } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useNavigation, useRoute } from '@react-navigation/native';
 import DrowerType01 from '../Drowers/DrowerType01';
@@ -7,20 +7,43 @@ import { Icon } from '@rneui/themed';
 import { TextInput } from 'react-native-gesture-handler';
 import { Avatar } from '@rneui/base';
 import EventsHome from '../Componant/EventsHome';
+import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 // import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 const s = require('../extraFiles/styles');
 
+
+
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 
-const HomeScreen = (prop:any) => {
-  const navigation = useNavigation();
-  const route=useRoute();
-const data =route.params
+const HomeScreen = (prop: any) => {
 
-  console.log(data)
+
+
+  const sheetRef = useRef<BottomSheet>(null);
+
+  // variables
+  const snapPoints = useMemo(() => ["33%", "85%"], []);
+
+  // callbacks
+  const handleSheetChange = useCallback((index: any) => {
+    // console.log("handleSheetChange", index);
+  }, []);
+  const handleSnapPress = useCallback((index: number) => {
+    sheetRef.current?.snapToIndex(index);
+  }, []);
+  const handleClosePress = useCallback(() => {
+    sheetRef.current?.close();
+  }, []);
+
+
+  const navigation = useNavigation();
+  const route = useRoute();
+  const data = route.params
+
+  // console.log(data)
 
 
 
@@ -36,7 +59,7 @@ const data =route.params
 
 
     <View style={[{ height: '100%', alignSelf: 'center', width: deviceWidth }, s.backGroundColor]}>
-      <SafeAreaView style={{ width: deviceWidth - 40, alignSelf: 'center' }}>
+      <SafeAreaView style={{ width: deviceWidth - 40, alignSelf: 'center', flex: 1 }}>
         <ScrollView  >
           <View >
 
@@ -47,7 +70,7 @@ const data =route.params
                 <View>
                   <View>
                     <TouchableOpacity
-                    onPress={() => prop.navigation.toggleDrawer()}
+                      onPress={() => prop.navigation.toggleDrawer()}
 
                     >
                       <View style={[s.CompShadow, s.BtnBackground]}>
@@ -82,13 +105,17 @@ const data =route.params
                   </TextInput>
 
                 </View>
-                <View style={[{}, s.CompShadow]}>
-                  <Avatar
-                    size={40}
-                    rounded
-                    source={require('../Images/Drower01/avatar.png')}
-                  />
-                </View>
+                <TouchableOpacity
+                  onPress={() => { navigation.navigate('Profiles' as never) }}
+                >
+                  <View style={[{}, s.CompShadow]}>
+                    <Avatar
+                      size={40}
+                      rounded
+                      source={require('../Images/Drower01/avatar.png')}
+                    />
+                  </View>
+                </TouchableOpacity>
               </View>
 
             </View>
@@ -123,25 +150,72 @@ const data =route.params
                     <EventsHome gradColor={['rgba(253, 80, 79, 1)',
                       'rgba(255, 129, 129, 1)']} />
                   </View>
-
                 </View>
               </ScrollView>
             </View>
 
+            {/* bottom model */}
 
           </View>
         </ScrollView>
       </SafeAreaView>
+      <View>
+        <View style={styles.container}>
+          {/* <Button title="Snap To 90%" onPress={() => handleSnapPress(2)} />
+                <Button title="Snap To 50%" onPress={() => handleSnapPress(1)} />
+                <Button title="Snap To 25%" onPress={() => handleSnapPress(0)} /> */}
+          <Button title="Close" onPress={() => handleClosePress()} />
+          <BottomSheet
+            ref={sheetRef}
+            snapPoints={snapPoints}
+            onChange={handleSheetChange}
+            backgroundStyle={{ borderTopLeftRadius: 30, borderTopEndRadius: 0, backgroundColor: '#F5F8FF', elevation: 5 }}
+          // backdropStyle={styles.backDrop}
+          >
+            <BottomSheetView style={{
+              // backgroundColor:'red'
+            }}>
+              <Text style={{ color: '#242629', fontWeight: '700', fontSize: 20, margin: 20 }}>Continue</Text>
+
+              <View style={{ flexDirection: 'row', width: '100%', paddingHorizontal: 20 }}>
+                <View style={{ flex: 1 }}>
+                  <View>
+                    <Text style={{ fontWeight: '300', fontSize: 14, color: '#242629' }}>25, Sep</Text>
+                    <Text style={{ fontWeight: '700', fontSize: 21, color: '#242629', paddingHorizontal:  3 }}>next lesson</Text>
+                  </View>
+                  <Text style={{ fontWeight: '400', fontSize: 18, color: '#797F8A' }}>
+                    Criminal law</Text>
+                </View>
+
+                <View>
+                  <Image
+                    source={require('../Images/HomeScreen/Rectangle.png')}
+                  />
+                </View>
+              </View>
+            </BottomSheetView>
+          </BottomSheet>
+        </View>
+      </View>
     </View>
 
 
   )
 }
 
-const styles = StyleSheet.create({})
 
 
 
 
 
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 260,
+    // backgroundColor: 'red',
+    height: deviceHeight
+  },
+
+})
 export default HomeScreen

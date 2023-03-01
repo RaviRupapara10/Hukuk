@@ -20,8 +20,8 @@ const Profiles = () => {
   // const s = require('../../extra/');
 
 
-  const data = route
-  console.log(data);
+  const data = route.params
+  // console.log(data);
   
 
  

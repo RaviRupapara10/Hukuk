@@ -9,7 +9,6 @@ import DrowerType01 from '../Drowers/DrowerType01';
 import HomeScreen from '../screen/HomeScreen';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { useNavigation } from '@react-navigation/native';
-import { Icon } from '@rneui/base';
 import Profiles from '../screen/DrowerScreens/LeaderBoardScreen/Screens/Profiles';
 import LeaderBoard from '../screen/DrowerScreens/LeaderBoardScreen/Leaderboard';
 import Chat from '../screen/DrowerScreens/Chat/Chat';
@@ -33,20 +32,27 @@ const NavigationData = () => {
 
   return (
 
-    <Stack.Navigator initialRouteName='DrawerNavigation'>
+    <Stack.Navigator initialRouteName='Login'>
       <Stack.Group
         screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Registration" component={Registration} />
         <Stack.Screen name="VerifyCode" component={VerifyCode} />
         <Stack.Screen name="PasswordReset" component={PasswordReset} />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="Chat" component={Chat} />
         <Stack.Screen name="ChatMassage" component={ChatMassage} />
-        <Stack.Screen name="DrawerNavigation" component={DrawerNavigation} />
         <Stack.Screen name="SinglePlayer" component={SinglePlayer} />
         <Stack.Screen name="Profiles" component={Profiles} />
+        <Stack.Screen name="Leaderboard" component={LeaderBoard} />
+        <Stack.Screen name="DrawerNavigation" component={DrawerNavigation} />
       </Stack.Group>
+
+
       <Stack.Group>
 
+      </Stack.Group>
+      <Stack.Group screenOptions={{ presentation: 'modal', headerShown: false }}>
       </Stack.Group>
 
 
@@ -69,7 +75,7 @@ function DrawerNavigation() {
     <Drawer.Navigator
 
       // initialRouteName='DrawerNavigation'
-      initialRouteName='HomeScreen'
+      // initialRouteName='HomeScreen'
 
       drawerContent={(props) => <DrowerType01 />}
       screenOptions={{
@@ -77,33 +83,17 @@ function DrawerNavigation() {
           backgroundColor: 'transparent',
         },
       }} >
-      <Stack.Group screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
-
-        <Stack.Screen name="Chat" component={Chat} />
-        <Stack.Screen name="Leaderboard" component={LeaderBoard} />
-      </Stack.Group>
-      <Stack.Group screenOptions={{ presentation: 'modal' , headerShown: false}}>
-        <Stack.Screen name="Profiles" component={Profiles} />
-      </Stack.Group>
-
-    </Drawer.Navigator>
-  );
-}
-
-function DrawerScreen() {
-
-  const navigation = useNavigation();
-  const Drawer = createDrawerNavigator();
-
-  return (
-    <Drawer.Navigator>
       <Drawer.Group screenOptions={{ headerShown: false }}>
+        <Drawer.Screen name="HomeScreen" component={HomeScreen} />
+        <Drawer.Screen name="Chat" component={Chat} />
         <Drawer.Screen name="Leaderboard" component={LeaderBoard} />
+        <Drawer.Screen name="Profiles" component={Profiles} />
       </Drawer.Group>
+
     </Drawer.Navigator>
   );
 }
+
 
 
 
