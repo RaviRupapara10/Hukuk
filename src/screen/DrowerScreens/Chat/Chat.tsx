@@ -34,6 +34,7 @@ const Chat = () => {
 			name: 'Beverly Steven',
 			time: '1:00 PM',
 			chat: 'How you doing?',
+			active: false,
 
 
 		},
@@ -42,6 +43,16 @@ const Chat = () => {
 			name: 'Group Chat Name',
 			time: '1:00 PM',
 			chat: 'How you doing?',
+			active: false,
+
+
+		},
+		{
+			AvatarColor: '#E7EEFB',
+			name: 'harshil',
+			time: '1:00 PM',
+			chat: 'How you doing?',
+			active: false,
 
 
 		},

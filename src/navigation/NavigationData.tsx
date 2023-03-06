@@ -34,9 +34,10 @@ const NavigationData = () => {
 
   return (
 
-    <Stack.Navigator initialRouteName='AllGames'>
+    <Stack.Navigator initialRouteName='Chat'>
       <Stack.Group
         screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="DrawerNavigation" component={DrawerNavigation} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Registration" component={Registration} />
         <Stack.Screen name="VerifyCode" component={VerifyCode} />
@@ -48,7 +49,6 @@ const NavigationData = () => {
         <Stack.Screen name="Profiles" component={Profiles} />
         <Stack.Screen name="Leaderboard" component={LeaderBoard} />
         {/* <Stack.Screen name="HomeSearch" component={HomeSearch} /> */}
-        <Stack.Screen name="DrawerNavigation" component={DrawerNavigation} />
         <Stack.Screen name="AllGames" component={AllGames} />
 
       </Stack.Group>
