@@ -6,7 +6,6 @@ import Registration from '../screen/UserLogin/Registration';
 import VerifyCode from '../screen/UserLogin/VerifyCode';
 import PasswordReset from '../screen/UserLogin/PasswordReset';
 import DrowerType01 from '../Drowers/DrowerType01';
-import HomeScreen from '../screen/HomeScreen';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { useNavigation } from '@react-navigation/native';
 import Profiles from '../screen/DrowerScreens/LeaderBoardScreen/Screens/Profiles';
@@ -14,6 +13,9 @@ import LeaderBoard from '../screen/DrowerScreens/LeaderBoardScreen/Leaderboard';
 import Chat from '../screen/DrowerScreens/Chat/Chat';
 import ChatMassage from '../screen/DrowerScreens/Chat/ChatMassage';
 import SinglePlayer from '../screen/DrowerScreens/LeaderBoardScreen/Screens/SinglePlayer';
+import HomeScreen from '../screen/HomeScreen/HomeScreen';
+import HomeSearch from '../screen/HomeScreen/HomeSearch';
+import AllGames from '../screen/Quiz/AllGames';
 
 
 const Stack = createNativeStackNavigator();
@@ -32,7 +34,7 @@ const NavigationData = () => {
 
   return (
 
-    <Stack.Navigator initialRouteName='Login'>
+    <Stack.Navigator initialRouteName='AllGames'>
       <Stack.Group
         screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Login" component={Login} />
@@ -45,14 +47,17 @@ const NavigationData = () => {
         <Stack.Screen name="SinglePlayer" component={SinglePlayer} />
         <Stack.Screen name="Profiles" component={Profiles} />
         <Stack.Screen name="Leaderboard" component={LeaderBoard} />
+        {/* <Stack.Screen name="HomeSearch" component={HomeSearch} /> */}
         <Stack.Screen name="DrawerNavigation" component={DrawerNavigation} />
+        <Stack.Screen name="AllGames" component={AllGames} />
+
       </Stack.Group>
 
 
       <Stack.Group>
-
       </Stack.Group>
       <Stack.Group screenOptions={{ presentation: 'modal', headerShown: false }}>
+        <Stack.Screen name="HomeSearch" component={HomeSearch} options={{ animation: 'slide_from_bottom',}} />
       </Stack.Group>
 
 
@@ -88,17 +93,10 @@ function DrawerNavigation() {
         <Drawer.Screen name="Chat" component={Chat} />
         <Drawer.Screen name="Leaderboard" component={LeaderBoard} />
         <Drawer.Screen name="Profiles" component={Profiles} />
+        <Drawer.Screen name="AllGames" component={AllGames} />
       </Drawer.Group>
 
     </Drawer.Navigator>
   );
 }
-
-
-
-
-
-
-
-
 

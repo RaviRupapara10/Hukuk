@@ -2,30 +2,30 @@ import { Dimensions, StyleSheet, Text, View, Image, DrawerLayoutAndroid, Touchab
 import React, { useContext, useRef, useState, useMemo, useCallback } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useNavigation, useRoute } from '@react-navigation/native';
-import DrowerType01 from '../Drowers/DrowerType01';
+import DrowerType01 from '../../Drowers/DrowerType01';
 import { Icon } from '@rneui/themed';
 import { TextInput } from 'react-native-gesture-handler';
 import { Avatar } from '@rneui/base';
-import EventsHome from '../Componant/EventsHome';
+import EventsHome from '../../Componant/EventsHome';
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 // import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
-const s = require('../extraFiles/styles');
+const s = require('../../extraFiles/styles');
 
 
 
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height;
 
-const HomeScreen = (prop: any) => {
+const HomeScreen = ({navigation }:any) => {
 
 
 
   const sheetRef = useRef<BottomSheet>(null);
 
   // variables
-  const snapPoints = useMemo(() => ["33%", "85%"], []);
+  const snapPoints = useMemo(() => ["40%", "95%"], []);
 
   // callbacks
   const handleSheetChange = useCallback((index: any) => {
@@ -39,7 +39,7 @@ const HomeScreen = (prop: any) => {
   }, []);
 
 
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
   const route = useRoute();
   const data = route.params
 
@@ -65,17 +65,18 @@ const HomeScreen = (prop: any) => {
 
 
             {/* spearchbar */}
+
             <View>
               <View style={{ height: 50, flexDirection: 'row', alignContent: 'center', justifyContent: 'space-between', alignItems: 'center', display: 'flex', marginTop: 10, alignSelf: 'center' }}>
                 <View>
                   <View>
                     <TouchableOpacity
-                      onPress={() => prop.navigation.toggleDrawer()}
+                      onPress={() => navigation.toggleDrawer()}
 
                     >
                       <View style={[s.CompShadow, s.BtnBackground]}>
                         <Image
-                          source={require('../Images/HomeScreen/DrowerIcon.png')}
+                          source={require('../../Images/HomeScreen/DrowerIcon.png')}
                           style={{ height: 15, width: 15, alignSelf: 'center' }}
                         />
                       </View>
@@ -87,11 +88,14 @@ const HomeScreen = (prop: any) => {
 
 
 
+                {/* <Pressable onPress={() => navigation.navigate('HomeSearch' as never)}> */}
+                <Pressable
+                  onPress={() => navigation.navigate('HomeSearch' as never)}
 
-                <View style={[{
-                  flexDirection: 'row',
-                  flex: 1, alignItems: 'center', margin: 10, height: 40, width: 50, backgroundColor: '#ffffff', alignContent: 'center', justifyContent: 'center', borderRadius: 15
-                }, s.CompShadow,]}>
+                  style={[{
+                    flexDirection: 'row',
+                    flex: 1, alignItems: 'center', margin: 10, height: 40, width: 50, backgroundColor: '#ffffff', alignContent: 'center', justifyContent: 'center', borderRadius: 15
+                  }, s.CompShadow,]}>
                   <Icon
 
                     size={20}
@@ -100,11 +104,13 @@ const HomeScreen = (prop: any) => {
                     style={{ marginLeft: 20, }}
 
                   />
-                  <TextInput placeholder='Search for events' style={{ flex: 1, margin: 10 }}>
+                  <Text style={{ flex: 1, margin: 10 ,color:'#797F8A'}}>
+                    Search for events
+                  </Text>
 
-                  </TextInput>
+                </Pressable>
+                {/* </Pressable> */}
 
-                </View>
                 <TouchableOpacity
                   onPress={() => { navigation.navigate('Profiles' as never) }}
                 >
@@ -112,14 +118,13 @@ const HomeScreen = (prop: any) => {
                     <Avatar
                       size={40}
                       rounded
-                      source={require('../Images/Drower01/avatar.png')}
+                      source={require('../../Images/Drower01/avatar.png')}
                     />
                   </View>
                 </TouchableOpacity>
               </View>
 
             </View>
-
             {/* text */}
             <View style={{ width: deviceWidth, marginTop: 50, }}>
               <Text style={{ fontSize: 36, fontWeight: '300', }}>
@@ -181,7 +186,7 @@ const HomeScreen = (prop: any) => {
                 <View style={{ flex: 1 }}>
                   <View>
                     <Text style={{ fontWeight: '300', fontSize: 14, color: '#242629' }}>25, Sep</Text>
-                    <Text style={{ fontWeight: '700', fontSize: 21, color: '#242629', paddingHorizontal:  3 }}>next lesson</Text>
+                    <Text style={{ fontWeight: '700', fontSize: 21, color: '#242629', paddingHorizontal: 3 }}>next lesson</Text>
                   </View>
                   <Text style={{ fontWeight: '400', fontSize: 18, color: '#797F8A' }}>
                     Criminal law</Text>
@@ -189,7 +194,7 @@ const HomeScreen = (prop: any) => {
 
                 <View>
                   <Image
-                    source={require('../Images/HomeScreen/Rectangle.png')}
+                    source={require('../../Images/HomeScreen/Rectangle.png')}
                   />
                 </View>
               </View>
@@ -212,7 +217,7 @@ const HomeScreen = (prop: any) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 260,
+    paddingTop: 200,
     // backgroundColor: 'red',
     height: deviceHeight
   },

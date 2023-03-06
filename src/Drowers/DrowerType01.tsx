@@ -15,6 +15,11 @@ const DrowerType01 = () => {
   const navigation = useNavigation();
 
  
+  const AllGamesCLick = () => {
+    // console.log('pressed');
+    navigation.navigate(('DrawerNavigation' as never),({ screen: "AllGames" } as never))
+  }
+ 
   const LeaderBoardCLick = () => {
     // console.log('pressed');
     navigation.navigate(('DrawerNavigation' as never),({ screen: "Leaderboard" } as never))
@@ -81,7 +86,9 @@ const DrowerType01 = () => {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity >
+            <TouchableOpacity
+              onPress={AllGamesCLick}>
+           
               <View style={{ marginLeft: 20, marginVertical: 10 }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                   <Image
