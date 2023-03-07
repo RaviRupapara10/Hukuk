@@ -6,6 +6,7 @@ import {
   Text,
   View,
   Image,
+  FlatList,
 } from "react-native";
 import React from "react";
 import { Avatar, Button, Icon } from "@rneui/base";
@@ -29,10 +30,141 @@ const ChatMassage = () => {
   const navigation = useNavigation();
   const route = useRoute();
   const data = route.params;
-  console.log(data);
+  // console.log(data);
+
+  const chatData = [
+    {
+      date: "December 4, 2020",
+
+      massages: [
+        {
+          time: "4:00 PM",
+          chat: "hi sumit how are you",
+          send: true,
+        },
+        {
+          time: "4:00 PM",
+          chat: "hi",
+          send: false,
+        },
+      ],
+    },
+    {
+      date: "December 4, 2020",
+
+      massages: [
+        {
+          time: "4:00 PM",
+          chat: "Sound good to me!",
+          send: true,
+        },
+        {
+          time: "4:00 PM",
+          chat: "hi",
+          send: false,
+        },
+      ],
+    },
+    {
+      date: "December 4, 2020",
+
+      massages: [
+        {
+          time: "4:00 PM",
+          chat: "Sound good to me!",
+          send: true,
+        },
+        {
+          time: "4:00 PM",
+          chat: "hi",
+          send: false,
+        },
+      ],
+    },
+    {
+      date: "December 4, 2020",
+
+      massages: [
+        {
+          time: "4:00 PM",
+          chat: "Sound good to me!",
+          send: true,
+        },
+        {
+          time: "4:00 PM",
+          chat: "hi",
+          send: false,
+        },
+      ],
+    },
+    {
+      date: "December 4, 2020",
+
+      massages: [
+        {
+          time: "4:00 PM",
+          chat: "Sound good to me!",
+          send: true,
+        },
+        {
+          time: "4:00 PM",
+          chat: "hi",
+          send: false,
+        },
+      ],
+    },
+    {
+      date: "December 4, 2020",
+
+      massages: [
+        {
+          time: "4:00 PM",
+          chat: "Sound good to me!",
+          send: true,
+        },
+        {
+          time: "4:00 PM",
+          chat: "hi",
+          send: false,
+        },
+      ],
+    },
+    {
+      date: "December 4, 2020",
+
+      massages: [
+        {
+          time: "4:00 PM",
+          chat: "Sound good to me!",
+          send: true,
+        },
+        {
+          time: "4:00 PM",
+          chat: "hi",
+          send: false,
+        },
+      ],
+    },
+    {
+      date: "December 4, 2020",
+
+      massages: [
+        {
+          time: "4:00 PM",
+          chat: "Sound good to me!",
+          send: true,
+        },
+        {
+          time: "4:00 PM",
+          chat: "hi",
+          send: false,
+        },
+      ],
+    },
+  ];
 
   return (
-    <View style={{ backgroundColor: "#E5E5E5", flex: 1 }}>
+    <View style={{ backgroundColor: "#F5F8FF", flex: 1 }}>
       <View style={{ flex: 1, height: windowHeight }}>
         <View style={styles.Headerconatiner}>
           {/* header */}
@@ -116,16 +248,30 @@ const ChatMassage = () => {
           </View>
         </View>
 
-        {/* chat Contaiber */}
-        <ScrollView style={{ flex: 1, backgroundColor: "#F5F8FF" }}>
-          <View style={{}}>
-            <Sender />
-            {/* <View style={{ alignSelf:'flex-end'}}> */}
-              <Reciver />
-            {/* </View> */}
-          </View>
-        </ScrollView>
-        {/* bootom type box */}
+        {/*------------------------ chat Contaiber--------------------------- */}
+        <View style={{ flex: 1, backgroundColor: "#F5F8FF" }}>
+          <FlatList
+
+          
+            inverted={true}
+            data={chatData}
+            renderItem={({ item }) => (
+              <View style={styles.ChatContainer}>
+                <View style={{ alignSelf: "center", marginBottom: 10 }}>
+                  <Text style={{ color: "#797F8A" }}>{item.date}</Text>
+                </View>
+                {item.massages.map((a, i) => (
+                  <View key={i}>
+                    {a.send ? <Sender data={a} /> : <Reciver data={a} />}
+                  </View>
+                ))}
+              </View>
+            )}
+            // keyExtractor={(item) => item.id}
+          />
+        </View>
+
+        {/*------------------------- bootom type box -------------------------------*/}
         <View style={{ alignContent: "flex-end" }}>
           <View style={styles.TypeContainer}>
             <View style={{ alignSelf: "center" }}>
@@ -174,6 +320,8 @@ const styles = StyleSheet.create({
     shadowColor: "#29484C",
     backgroundColor: "#F5F8FF",
     // paddingBottom:30
+    marginBottom: 10,
+    // paddingBottom:10,
   },
 
   header: {
@@ -184,6 +332,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderBottomLeftRadius: 30,
     justifyContent: "center",
+    // elevation:5,
   },
   HeaderText: {
     alignContent: "center",
@@ -204,5 +353,8 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
     alignContent: "center",
     marginBottom: 20,
+  },
+  ChatContainer: {
+    paddingHorizontal: 20,
   },
 });
