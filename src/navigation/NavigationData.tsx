@@ -34,7 +34,7 @@ const NavigationData = () => {
 
   return (
 
-    <Stack.Navigator initialRouteName='Registration'>
+    <Stack.Navigator initialRouteName='Chat'>
       <Stack.Group
         screenOptions={{ headerShown: false }}>
         <Stack.Screen name="DrawerNavigation" component={DrawerNavigation} />

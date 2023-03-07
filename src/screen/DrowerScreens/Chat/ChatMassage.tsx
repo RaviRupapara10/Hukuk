@@ -8,160 +8,72 @@ import {
   Image,
   FlatList,
 } from "react-native";
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Avatar, Button, Icon } from "@rneui/base";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { ScrollView, TextInput } from "react-native-gesture-handler";
 import Sender from "./Sender";
 import Reciver from "./Reciver";
+import { spring } from "react-native-reanimated";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
-
-// AvatarColor: '#E7EEFB',
-// 			name: 'harshil',
-// 			time: '1:00 PM',
-// 			chat: 'How you doing?',
-// 			active: false,
-
+export type MessageDetail = {
+  date: Date;
+  messages: Message[];
+};
+export type Message = {
+  time: Date;
+  chat: string;
+  isSent: boolean;
+};
 const ChatMassage = () => {
   const s = require("../../../extraFiles/styles");
-
+  const flatListEle = useRef<any>();
   const navigation = useNavigation();
   const route = useRoute();
   const data = route.params;
-  // console.log(data);
 
-  const chatData = [
+  const [massage, setMassage] = useState<string>("");
+  const [chatData, setChatData] = useState<MessageDetail[]>([
     {
-      date: "December 4, 2020",
-
-      massages: [
+      date: new Date(2022, 11, 4),
+      messages: [
         {
-          time: "4:00 PM",
-          chat: "hi sumit how are you",
-          send: true,
-        },
-        {
-          time: "4:00 PM",
-          chat: "hi",
-          send: false,
+          time: new Date(),
+          chat: "Hi how are you?",
+          isSent: false,
         },
       ],
     },
-    {
-      date: "December 4, 2020",
+  ]);
 
-      massages: [
-        {
-          time: "4:00 PM",
-          chat: "Sound good to me!",
-          send: true,
-        },
-        {
-          time: "4:00 PM",
-          chat: "hi",
-          send: false,
-        },
-      ],
-    },
-    {
-      date: "December 4, 2020",
+  // console.log(massage);
 
-      massages: [
-        {
-          time: "4:00 PM",
-          chat: "Sound good to me!",
-          send: true,
-        },
-        {
-          time: "4:00 PM",
-          chat: "hi",
-          send: false,
-        },
-      ],
-    },
-    {
-      date: "December 4, 2020",
-
-      massages: [
-        {
-          time: "4:00 PM",
-          chat: "Sound good to me!",
-          send: true,
-        },
-        {
-          time: "4:00 PM",
-          chat: "hi",
-          send: false,
-        },
-      ],
-    },
-    {
-      date: "December 4, 2020",
-
-      massages: [
-        {
-          time: "4:00 PM",
-          chat: "Sound good to me!",
-          send: true,
-        },
-        {
-          time: "4:00 PM",
-          chat: "hi",
-          send: false,
-        },
-      ],
-    },
-    {
-      date: "December 4, 2020",
-
-      massages: [
-        {
-          time: "4:00 PM",
-          chat: "Sound good to me!",
-          send: true,
-        },
-        {
-          time: "4:00 PM",
-          chat: "hi",
-          send: false,
-        },
-      ],
-    },
-    {
-      date: "December 4, 2020",
-
-      massages: [
-        {
-          time: "4:00 PM",
-          chat: "Sound good to me!",
-          send: true,
-        },
-        {
-          time: "4:00 PM",
-          chat: "hi",
-          send: false,
-        },
-      ],
-    },
-    {
-      date: "December 4, 2020",
-
-      massages: [
-        {
-          time: "4:00 PM",
-          chat: "Sound good to me!",
-          send: true,
-        },
-        {
-          time: "4:00 PM",
-          chat: "hi",
-          send: false,
-        },
-      ],
-    },
-  ];
+  const sentData = () => {
+    if (massage?.trim()) {
+      const index = chatData.findIndex(
+        (x) => x.date.toDateString() == new Date().toDateString()
+      );
+      if (index != -1) {
+        chatData[index].messages.push({
+          chat: massage,
+          isSent: true,
+          time: new Date(),
+        });
+      } else {
+        chatData.push({
+          date: new Date(),
+          messages: [{ chat: massage, isSent: true, time: new Date() }],
+        });
+      }
+      setMassage("");
+      setChatData([...chatData]);
+      setTimeout(() => {
+        (flatListEle.current as any)?.scrollToEnd({ animated: true });
+      }, 200);
+    }
+  };
 
   return (
     <View style={{ backgroundColor: "#F5F8FF", flex: 1 }}>
@@ -251,18 +163,18 @@ const ChatMassage = () => {
         {/*------------------------ chat Contaiber--------------------------- */}
         <View style={{ flex: 1, backgroundColor: "#F5F8FF" }}>
           <FlatList
-
-          
-            inverted={true}
+            ref={flatListEle}
             data={chatData}
             renderItem={({ item }) => (
               <View style={styles.ChatContainer}>
                 <View style={{ alignSelf: "center", marginBottom: 10 }}>
-                  <Text style={{ color: "#797F8A" }}>{item.date}</Text>
+                  <Text style={{ color: "#797F8A" }}>
+                    {item.date.toDateString()}
+                  </Text>
                 </View>
-                {item.massages.map((a, i) => (
+                {item.messages.map((a, i) => (
                   <View key={i}>
-                    {a.send ? <Sender data={a} /> : <Reciver data={a} />}
+                    {a.isSent ? <Sender data={a} /> : <Reciver data={a} />}
                   </View>
                 ))}
               </View>
@@ -284,7 +196,11 @@ const ChatMassage = () => {
             <View
               style={{ alignSelf: "center", flex: 1, paddingHorizontal: 10 }}
             >
-              <TextInput placeholder="Write a message here..."></TextInput>
+              <TextInput
+                onChangeText={(text) => setMassage(text as any)}
+                defaultValue={massage}
+                placeholder="Write a message here..."
+              ></TextInput>
             </View>
             <View
               style={{
@@ -299,6 +215,9 @@ const ChatMassage = () => {
                 rounded
                 icon={{ name: "paper-plane-outline", type: "ionicon" }}
                 containerStyle={{ backgroundColor: "#0971FE" }}
+                onPress={() => {
+                  sentData();
+                }}
               />
             </View>
           </View>
